@@ -48,7 +48,8 @@ RUN apt-get install -y ros-${ROS_DISTRO}-turtlebot3-msgs && \
     apt-get install -y ros-${ROS_DISTRO}-joint-state-controller ros-${ROS_DISTRO}-effort-controllers && \ 
     apt-get install -y ros-${ROS_DISTRO}-position-controllers ros-${ROS_DISTRO}-velocity-controllers && \ 
     apt-get install -y ros-${ROS_DISTRO}-robot-state-publisher ros-${ROS_DISTRO}-joint-state-publisher && \
-    apt-get install -y ros-${ROS_DISTRO}-joint-state-publisher-gui
+    apt-get install -y ros-${ROS_DISTRO}-joint-state-publisher-gui && \
+    apt-get install -y ros-${ROS_DISTRO}-teleop-twist-keyboard
 
 
 FROM ros-dep-install  AS set_entrypoint
