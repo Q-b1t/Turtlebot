@@ -21,7 +21,7 @@ COPY repair_config_file.sh .
 FROM env-setup AS gen-dep-install
 
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive && \
+RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive && \
     apt install -y python3-colcon-common-extensions && \ 
     apt-get install -y make && \
     apt-get install -y g++ && \ 
@@ -49,8 +49,11 @@ RUN apt-get install -y ros-${ROS_DISTRO}-turtlebot3-msgs && \
     apt-get install -y ros-${ROS_DISTRO}-position-controllers ros-${ROS_DISTRO}-velocity-controllers && \ 
     apt-get install -y ros-${ROS_DISTRO}-robot-state-publisher ros-${ROS_DISTRO}-joint-state-publisher && \
     apt-get install -y ros-${ROS_DISTRO}-joint-state-publisher-gui && \
-    apt-get install -y ros-${ROS_DISTRO}-teleop-twist-keyboard
+    apt-get install -y ros-${ROS_DISTRO}-teleop-twist-keyboard && \
+    apt-get install -y ros-${ROS_DISTRO}-joy && \
+    apt-get install -y ros-${ROS_DISTRO}-gmapping ros-${ROS_DISTRO}-map-server
 
+#     apt-get install -y ros-${ROS_DISTRO}-joy
 
 FROM ros-dep-install  AS set_entrypoint
 
